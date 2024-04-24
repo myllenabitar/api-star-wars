@@ -43,27 +43,12 @@ const Personagem = ({ dados }) => {
       const vehicles = await Promise.all(vehiclesPromises);
       setVehiclesData(vehicles);
     };
-    const fetchCharacterImage = async () => {
-        try {
-          const response = await fetch(`https://swapi.py4e.com/api/people/?search=${dados.name}`);
-          const data = await response.json();
-        
-          const characterData = data.results[0];
-          if (characterData && characterData.image) {
-            setCharacterImage(characterData.image);
-          } else {
-            setCharacterImage('default-image-url');
-          }
-        } catch (error) {
-          console.error('Error fetching character image:', error);
-        }
-      };
-  
+    
     fetchFilms();
     fetchHomeworld();
     fetchStarships();
     fetchVehicles();
-    fetchCharacterImage();
+    
   }, [dados && <Personagem dados={dados}/>]);
 
   return (
