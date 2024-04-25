@@ -5,9 +5,10 @@ const Personagem = ({ dados }) => {
   const [homeworldData, setHomeworldData] = useState(null);
   const [starshipsData, setStarshipsData] = useState([]);
   const [vehiclesData, setVehiclesData] = useState([]);
-  const [characterImage, setCharacterImage] = useState(null);
+  
 
   useEffect(() => {
+    // fazendo  fetch para buscar cada dado sobre os personagens, que estão em ouras apis, pois somente me mostrava o link de cada dado.
     const fetchFilms = async () => {
       const filmsPromises = dados.films.map(async (filmUrl) => {
         const response = await fetch(filmUrl);
@@ -64,8 +65,8 @@ const Personagem = ({ dados }) => {
           <li key={index}>{film.title}</li>
         ))}
       </ul>
-      
-      <p>Homeworld: {homeworldData && homeworldData.name}</p>
+        
+      <p>Homeworld: {homeworldData && homeworldData.name}</p> 
       
       <p>Starships:</p>
       <ul>
@@ -83,5 +84,5 @@ const Personagem = ({ dados }) => {
     </div>
   );
 };
-
+// puxar os dados de uma array, fez eu utilizar o map, porém, ele só me mosrou links da apis de cada dado coletado.
 export default Personagem;
