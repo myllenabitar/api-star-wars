@@ -1,8 +1,8 @@
 <h1 align="center">API STAR WARS </h1>
+https://github.com/user-attachments/assets/7cb590d4-0b6f-49ce-9dff-f3e52e697132
 
-![Stars](https://github.com/user-attachments/assets/01b153ad-829f-439e-98ca-71b7be019662)
+<h2>Badges:</h2>
 
-<h2>Badges:</h2> 
 
 Ultima versão: abril 2024
 
@@ -11,10 +11,11 @@ Projeto pessoal, desenvolvido com base em experiências e exemplos do curso de R
 
 <h2>Status do Projeto</h2>'
 <h4 align="center">
-:construction:  Projeto em construção  :construction:
+:star: Projeto Concluído! :star:
 </h4>
-Funcionalidades e Demonstração da Aplicação
-Acesso ao projeto
+<h2>:hammer:Funcionalidades e Demonstração da Aplicação</h2>
+<h2>Acesso ao projeto</h2>
+
 
 <h2> Tecnologias Utilizadas</h2>
 
