@@ -1,5 +1,7 @@
 <h1 align="center">API STAR WARS </h1>
-https://github.com/user-attachments/assets/7cb590d4-0b6f-49ce-9dff-f3e52e697132
+
+<img src="https://github.com/user-attachments/assets/36ef6d4e-e394-48d9-86d9-831be9e488df" alt="logo star wars">
+
 
 <h2>Badges:</h2>
 
@@ -29,6 +31,8 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 <H2>Autores</H2>
-Myllena Bitar
+<h3>Myllena Bitar</h3>
+<img src="https://avatars.githubusercontent.com/u/111917539?v=4" alt="Myllena Bitar">
+
   
 
