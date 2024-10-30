@@ -16,6 +16,8 @@ Projeto pessoal, desenvolvido com base em experiências e exemplos do curso de R
 :star: Projeto Concluído! :star:
 </h4>
 <h2>:hammer:Funcionalidades e Demonstração da Aplicação</h2>
+<img src="https://github.com/user-attachments/assets/7c9728c7-ca32-4f8a-89d5-97380c9bdaa6" alt="quando clica em luke skywalker">
+
 <h2>Acesso ao projeto</h2>
 
 
