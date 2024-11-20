@@ -38,8 +38,8 @@ const Personagem = ({ dados }) => {
     const fetchVehicles = async () => {
       const vehiclesPromises = dados.vehicles.map(async (vehicleUrl) => {
         const response = await fetch(vehicleUrl);
-        const vehicleData = await response.json();
-        return vehicleData;
+        return await response.json();
+   
       });
       const vehicles = await Promise.all(vehiclesPromises);
       setVehiclesData(vehicles);
@@ -84,5 +84,5 @@ const Personagem = ({ dados }) => {
     </div>
   );
 };
-// puxar os dados de uma array, fez eu utilizar o map, porém, ele só me mosrou links da apis de cada dado coletado.
+// puxar os dados de uma array, fez eu utilizar o map, porém, ele só me mostrou links da apis de cada dado coletado.
 export default Personagem;
