@@ -1,4 +1,4 @@
-# ⭐ API Star Wars
+# ⭐ Explorador Star Wars
 
 <img src="https://github.com/user-attachments/assets/7c9728c7-ca32-4f8a-89d5-97380c9bdaa6" alt="Screenshot do projeto" align="center" width="600"/>
 
