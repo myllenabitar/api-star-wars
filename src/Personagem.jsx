@@ -1,88 +1,89 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Personagem = ({ dados }) => {
   const [filmsData, setFilmsData] = useState([]);
   const [homeworldData, setHomeworldData] = useState(null);
   const [starshipsData, setStarshipsData] = useState([]);
   const [vehiclesData, setVehiclesData] = useState([]);
-  
 
   useEffect(() => {
-    // fazendo  fetch para buscar cada dado sobre os personagens, que estão em ouras apis, pois somente me mostrava o link de cada dado.
-    const fetchFilms = async () => {
-      const filmsPromises = dados.films.map(async (filmUrl) => {
-        const response = await fetch(filmUrl);
-        const filmData = await response.json();
-        return filmData;
-      });
-      const films = await Promise.all(filmsPromises);
-      setFilmsData(films);
+    const fetchData = async (urls) => {
+      try {
+        const responses = await Promise.all(urls.map((url) => fetch(url)));
+        const data = await Promise.all(responses.map((res) => res.json()));
+        return data;
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+        return [];
+      }
     };
 
-    const fetchHomeworld = async () => {
-      const response = await fetch(dados.homeworld);
-      const homeworldData = await response.json();
-      setHomeworldData(homeworldData);
+    const loadDetails = async () => {
+      if (!dados) return;
+      try {
+        const films = await fetchData(dados.films);
+        setFilmsData(films);
+
+        const homeworldResponse = await fetch(dados.homeworld);
+        const homeworld = await homeworldResponse.json();
+        setHomeworldData(homeworld);
+
+        const starships = await fetchData(dados.starships);
+        setStarshipsData(starships);
+
+        const vehicles = await fetchData(dados.vehicles);
+        setVehiclesData(vehicles);
+      } catch (error) {
+        console.error("Erro ao carregar detalhes:", error);
+      }
     };
 
-    const fetchStarships = async () => {
-      const starshipsPromises = dados.starships.map(async (starshipUrl) => {
-        const response = await fetch(starshipUrl);
-        const starshipData = await response.json();
-        return starshipData;
-      });
-      const starships = await Promise.all(starshipsPromises);
-      setStarshipsData(starships);
-    };
-
-    const fetchVehicles = async () => {
-      const vehiclesPromises = dados.vehicles.map(async (vehicleUrl) => {
-        const response = await fetch(vehicleUrl);
-        return await response.json();
-   
-      });
-      const vehicles = await Promise.all(vehiclesPromises);
-      setVehiclesData(vehicles);
-    };
-    
-    fetchFilms();
-    fetchHomeworld();
-    fetchStarships();
-    fetchVehicles();
-    
-  }, [dados && <Personagem dados={dados}/>]);
+    loadDetails();
+  }, [dados]);
 
   return (
     <div>
       <h2>{dados.name}</h2>
       <p>Birth Year: {dados.birth_year}</p>
-      <p>Height: {dados.height}</p>
-      <p>Mass: {dados.mass}</p>
-      
+      <p>Height: {dados.height} cm</p>
+      <p>Mass: {dados.mass} kg</p>
+
       <p>Films:</p>
-      <ul>
-        {filmsData.map((film, index) => (
-          <li key={index}>{film.title}</li>
-        ))}
-      </ul>
-        
-      <p>Homeworld: {homeworldData && homeworldData.name}</p> 
-      
+      {filmsData.length > 0 ? (
+        <ul>
+          {filmsData.map((film, index) => (
+            <li key={index}>{film.title}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Loading films...</p>
+      )}
+
+      <p>Homeworld: {homeworldData ? homeworldData.name : "Loading..."}</p>
+
       <p>Starships:</p>
-      <ul>
-        {starshipsData.map((starship, index) => (
-          <li key={index}>{starship.name}</li>
-        ))}
-      </ul>
-      
+      {starshipsData.length > 0 ? (
+        <ul>
+          {starshipsData.map((starship, index) => (
+            <li key={index}>{starship.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No starships found.</p>
+      )}
+
       <p>Vehicles:</p>
-      <ul>
-        {vehiclesData.map((vehicle, index) => (
-          <li key={index}>{vehicle.name}</li>
-        ))}
-      </ul>
+      {vehiclesData.length > 0 ? (
+        <ul>
+          {vehiclesData.map((vehicle, index) => (
+            <li key={index}>{vehicle.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No vehicles found.</p>
+      )}
     </div>
   );
 };
-// puxar os dados de uma array, fez eu utilizar o map, porém, ele só me mostrou links da apis de cada dado coletado.
+
 export default Personagem;
