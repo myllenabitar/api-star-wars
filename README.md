@@ -30,6 +30,20 @@ Foi desenvolvido utilizando `fetch` para consumir dados de uma API com informaç
 ---
 
 ## 📂 Como Rodar o Projeto
-1. Clone este repositório:
+1 - Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/api-star-wars.git
+   git clone https://github.com/seu-usuario/agenda-consultorio.git
+   ```
+2 - Navegue até a pasta do projeto:
+```bash
+cd agenda-consultorio
+```
+3 - Instale as dependências:
+```bash
+npm install
+```
+4 - Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+Acesse o projeto em http://localhost:3000.
